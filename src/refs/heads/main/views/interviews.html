@@ -16,6 +16,40 @@
   </nav>
 
   <main>
+
+    <form class="interview-form" action="/createCandidate" method="POST">
+      <h1>Create Interview</h1>
+      <div>
+          <label for="id">ID:</label>
+          <input name="id" type="text" placeholder="id" value="">
+      </div>
+      <div>
+        <label for="job-id">First Name:</label>
+        <input name="job-id" type="text" placeholder="job id" value="">
+    </div>
+      <div>
+          <label for="candidate-id">Email:</label>
+          <input name="candidate-id" type="text" placeholder="candidate id" value="">
+      </div>
+      <button class="btn" type="submit">Submit</button>
+  </form>
+
+  <form class="interview-form" action="/createCandidate" method="POST">
+    <h1>Update Interview</h1>
+    <div>
+        <label for="id">ID:</label>
+        <input name="id" type="text" placeholder="id" value="`${id}`">
+    </div>
+    <div>
+      <label for="job-id">First Name:</label>
+      <input name="job-id" type="text" placeholder="job id" value="`{job.id}`">
+  </div>
+    <div>
+        <label for="candidate-id">Email:</label>
+        <input name="candidate-id" type="text" placeholder="candidate id" value="`{candidate.id}`">
+    </div>
+    <button class="btn" type="submit">Submit</button>
+</form>
     
 
 
