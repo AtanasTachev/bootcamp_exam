@@ -15,16 +15,17 @@
   </nav>
 
   <main>
-    <form class="theater-form" action="/create" method="POST">
+
+    <form class="candidate-form" action="/createCandidate" method="POST">
       <h1>Create Candidate</h1>
       <div>
           <label for="first-name">First Name:</label>
           <input name="first-name" type="text" placeholder="First Name" value="">
       </div>
       <div>
-          <label for="last-name">Last Name:</label>
-          <textarea name="last-name" placeholder="Last Name"></textarea>
-      </div>
+        <label for="last-name">First Name:</label>
+        <input name="last-name" type="text" placeholder="Last Name" value="">
+    </div>
       <div>
           <label for="email">Email:</label>
           <input name="emali" type="text" placeholder="Email" value="">
@@ -32,6 +33,22 @@
       <button class="btn" type="submit">Submit</button>
   </form>
 
+  <form class="candidate-form" action="/updateCandidate" method="POST">
+    <h1>Create Candidate</h1>
+    <div>
+        <label for="first-name">First Name:</label>
+        <input name="first-name" type="text" placeholder="First Name" value="`${candidate.firstName}`">
+    </div>
+    <div>
+      <label for="first-name">Last Name:</label>
+      <input name="first-name" type="text" placeholder="Last Name" value="`${candidate.lastName}`">
+  </div>
+    <div>
+        <label for="email">Email:</label>
+        <input name="emali" type="text" placeholder="Email" value="`${candidate.email}`">
+    </div>
+    <button class="btn" type="submit">Submit</button>
+</form>
 
   </main>
 </div>
