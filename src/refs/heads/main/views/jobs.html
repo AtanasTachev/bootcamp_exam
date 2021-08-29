@@ -21,8 +21,32 @@
     </nav>
 
     <main>
-      
 
+      <form class="candidate-form" action="/createCandidate" method="POST">
+        <h1>Create Job</h1>
+        <div>
+            <label for="job-name">Job Name:</label>
+            <input name="job-name" type="text" placeholder="Job Name" value="">
+        </div>
+        <div>
+          <label for="description">First Name:</label>
+          <input name="description" type="text" placeholder="description" value="">
+      </div>
+        <button class="btn" type="submit">Submit</button>
+    </form>
+
+    <form class="candidate-form" action="/createCandidate" method="POST">
+      <h1>Update Job</h1>
+      <div>
+          <label for="job-name">Job Name:</label>
+          <input name="job-name" type="text" placeholder="Job Name" value="`{jobName}`">
+      </div>
+      <div>
+        <label for="description">First Name:</label>
+        <input name="description" type="text" placeholder="description" value="`{description}`">
+    </div>
+      <button class="btn" type="submit">Submit</button>
+  </form>
 
     </main>
   </div>
