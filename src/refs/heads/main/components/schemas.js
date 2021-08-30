@@ -44,7 +44,6 @@ const schemas = {
             jobId: String,
             candidateId: String,
             slot: Number,
-
         },
         jobInterviewsList: []
     }]
