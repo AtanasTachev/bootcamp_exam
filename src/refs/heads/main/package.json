@@ -2,11 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "src": "index.js",
   "type": "module",
   "scripts": {
-    "start": "concurrently \"nodemon index.js\" \"react-scripts start\"",
-    "build": "react-scripts build",
+     "nodemon index.js",
+    "start": "concurrently \"react-scripts start\" \"react-scripts build\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
