@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
-import Button from './Button.js';
+import Button from './Button.js'
+import { Link } from "react-router-dom";
 
 const Header = ({title}) => {
 
@@ -7,7 +8,9 @@ const Header = ({title}) => {
     return (
         <header className="header">
             <h1>{title}</h1>
-            <Button />
+            <Link to='/Jobs'>JOBS</Link>
+            <Link to='/Candidates'>CANDIDATES</Link>
+            <Link to='/Interviews'>INTERVIEWS</Link>
         </header>
     )
 }
