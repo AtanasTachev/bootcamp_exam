@@ -12,7 +12,7 @@ const Header = ({title}) => {
     )
 }
 Header.defaultProps = {
-    title: 'Hiring'
+    title: 'Recruitment tool'
 }
 Header.propTypes = {
     title: PropTypes.string

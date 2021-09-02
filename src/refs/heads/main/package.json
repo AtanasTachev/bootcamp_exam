@@ -2,11 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "src": "index.js",
-  "type": "module",
+  "index": "index.js",
+  "type": "commonjs",
   "scripts": {
     "build": "react-scripts build",
-    "start": "concurrently \"react-scripts start\" \"nodemon index.js\"",
+    "start": "concurrently \"nodemon server/index.js\" \"react-scripts start\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -16,7 +16,7 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongodb": "^4.1.0",
+    "mongodb": "^4.1.1",
     "nodemon": "^2.0.12",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
