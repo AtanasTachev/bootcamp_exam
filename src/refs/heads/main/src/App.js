@@ -5,7 +5,7 @@ import Candidates from './components/Candidates.js'
 import Interviews from './components/Interviews.js'
 import CreateJob from './components/CreateJob.js'
 import EditJob from './components/EditJob.js'
-
+import CreateCandidate from './components/CreateCandidate.js'
 
 function App() {
     return (
@@ -14,6 +14,7 @@ function App() {
         <Header />
         <Route path='/jobs' component={Jobs}/>
         <Route path='/candidates' component={Candidates}/>
+        <Route path='/createCandidate' component={CreateCandidate}/>
         <Route path='/interviews' component={Interviews}/>
         <Route path='/createJob' component={CreateJob}/>
         <Route path='/editJob' component={EditJob}/>

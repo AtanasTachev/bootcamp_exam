@@ -4,20 +4,20 @@ const Candidates = () => {
 
     return (
         <>
-             <ul>
-            <li>
-     <Link to='/createJob'>Create Candidate</Link>
-            </li>
-            <li>
-     <Link to='/editJob'>Edit Candidate</Link>
-            </li>
-            <li>
-     <Link to='/deleteJob'>Delete Candidate</Link>
-     </li>
-     <li>
-     <Link to='/'>Go back</Link>
-     </li>
-     </ul>
+            <ul>
+                <li>
+                    <Link to='/createCandidate'>Create Candidate</Link>
+                </li>
+                <li>
+                    <Link to='/editCandidate'>Edit Candidate</Link>
+                </li>
+                <li>
+                    <Link to='/deleteCandidate'>Delete Candidate</Link>
+                </li>
+                <li>
+                    <Link to='/'>Go back</Link>
+                </li>
+            </ul>
         </>)
 }
 
