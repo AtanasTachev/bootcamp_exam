@@ -6,15 +6,47 @@ import Interviews from './components/Interviews.js'
 import CreateJob from './components/CreateJob.js'
 import EditJob from './components/EditJob.js'
 import CreateCandidate from './components/CreateCandidate.js'
+import EditCandidate from './components/EditCandidate.js'
+import { useEffect, useState } from 'react'
 
 function App() {
+    const [candidates , setCandidates] = useState([]);
+    useEffect( () => {
+        const getCandidates = async() => {
+            const candidatesFromServer = await fetchCandidates();
+            setCandidates(candidatesFromServer)
+        }
+        getCandidates();
+    }, []);
+
+    const fetchCandidates = async () => {
+        const res = await fetch('http://localhost:5000/candidates')
+        const data = await res.json();
+        return data;
+    }
+
+    const createCandidate = async (candidate) => {
+        const res = await fetch('http://localhost:5000/candidates', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(candidate)
+        } )
+
+        const data = await res.json();
+        setCandidates([...candidates, data])
+    }
+
+
     return (
         <Router>
             <div className="container">
         <Header />
         <Route path='/jobs' component={Jobs}/>
         <Route path='/candidates' component={Candidates}/>
-        <Route path='/createCandidate' component={CreateCandidate}/>
+        <Route path='/createCandidate' onCreateC={createCandidate} component={CreateCandidate}/>
+        <Route path='/editCandidate' component={EditCandidate}/>
         <Route path='/interviews' component={Interviews}/>
         <Route path='/createJob' component={CreateJob}/>
         <Route path='/editJob' component={EditJob}/>

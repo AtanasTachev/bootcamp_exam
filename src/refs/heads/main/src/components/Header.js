@@ -7,10 +7,11 @@ const Header = ({title}) => {
 
     return (
         <header className="header">
-            <h1>{title}</h1>
-            <Link to='/Jobs'>JOBS</Link>
-            <Link to='/Candidates'>CANDIDATES</Link>
-            <Link to='/Interviews'>INTERVIEWS</Link>
+            <h1>{title} <p><Link to='/'>Home</Link></p></h1>
+            <Link to='/jobs'>JOBS</Link>
+            <Link to='/candidates'>CANDIDATES</Link>
+            <Link to='/interviews'>INTERVIEWS</Link>
+            
         </header>
     )
 }
