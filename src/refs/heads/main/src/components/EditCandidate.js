@@ -45,7 +45,7 @@ const EditCandidate= ({onAdd, id}) => {
                         setEmail(e.target.value)
                     }}/>
             </div>
-            <input className='btn btn-block' type='submit' value='Save Job'/>
+            <input className='btn btn-block' type='submit' value='Save Candidate'/>
         </form>
         
     ]

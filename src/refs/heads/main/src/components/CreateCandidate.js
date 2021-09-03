@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const CreateCandidate= ({onCreateC, id}) => {
     id =  Math.floor(Math.random() * 10000) + 1;
+    
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -45,7 +46,7 @@ const CreateCandidate= ({onCreateC, id}) => {
                         setEmail(e.target.value)
                     }}/>
             </div>
-            <input className='btn btn-block' type='submit' value='Save Job'/>
+            <input className='btn btn-block' type='submit' value='Save Candidate'/>
         </form>
         
     ]

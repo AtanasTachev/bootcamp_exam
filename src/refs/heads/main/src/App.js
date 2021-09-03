@@ -45,7 +45,7 @@ function App() {
         <Header />
         <Route path='/jobs' component={Jobs}/>
         <Route path='/candidates' component={Candidates}/>
-        <Route path='/createCandidate' onCreateC={createCandidate} component={CreateCandidate}/>
+        <Route exact path='/createCandidate' onCreateC={createCandidate} component={CreateCandidate} />
         <Route path='/editCandidate' component={EditCandidate}/>
         <Route path='/interviews' component={Interviews}/>
         <Route path='/createJob' component={CreateJob}/>

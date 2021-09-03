@@ -5,17 +5,14 @@ const Candidates = () => {
     return (
         <>
             <ul>
+            <li>
+                    <Link to='/showAllCandidates'>Show All Candidates</Link>
+                </li>
                 <li>
                     <Link to='/createCandidate'>Create Candidate</Link>
                 </li>
                 <li>
-                    <Link to='/editCandidate'>Edit Candidate</Link>
-                </li>
-                <li>
-                    <Link to='/deleteCandidate'>Delete Candidate</Link>
-                </li>
-                <li>
-                    <Link to='/'>Go back</Link>
+                    <Link to='/'>Home</Link>
                 </li>
             </ul>
         </>)
