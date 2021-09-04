@@ -6,7 +6,7 @@ const Candidates = () => {
         <>
             <ul>
             <li>
-                    <Link to='/showAllCandidates'>Show All Candidates</Link>
+                    <Link to='/candidates'>Show All Candidates</Link>
                 </li>
                 <li>
                     <Link to='/createCandidate'>Create Candidate</Link>

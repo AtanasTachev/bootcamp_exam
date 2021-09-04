@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Interviews = () => {
+const InterviewsView = () => {
 
     return (
         <>
@@ -21,4 +21,4 @@ const Interviews = () => {
         </>)
 }
 
-export default Interviews;
+export default InterviewsView;

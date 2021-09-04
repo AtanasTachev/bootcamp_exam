@@ -1,27 +1,26 @@
 import { Link } from "react-router-dom";
+import Button from "./Button.js";
 // import PropTypes from 'prop-types';
 
-const Candidate = ({ candidate }) => {
+const Candidate = ({ candidate, onDelete }) => {
     return (
-        <div className='reminder'>
-            <h3>Full Name: {candidate.firstName} {candidate.lastName}</h3>
-            <h3>Email: {candidate.email}</h3>
-            <li>
-                <Link to='/editCandidate' className='btn' style={{backgroundColor: 'orange'}}>Edit Candidate</Link>
-            </li>
-            <li>
-                <Link to='/deleteCandidate' className='btn' style={{backgroundColor: 'red'}}>Delete Candidate</Link>
-            </li>
-            {/* <button className='btn' style={{backgroundColor: color, color: 'red'}}>Delete</button> */}
+        <div className='header'>
+            <h5 style={{ color: 'blue' }}>Full Name: </h5>
+            <p>{candidate.firstName} {candidate.lastName}</p>
+            <h5 style={{ color: 'blue' }}>Email: </h5>
+            <p>{candidate.email}</p>
+            <Link to='/editCandidate' className='btn' style={{ backgroundColor: 'orange' }}>Edit Candidate</Link>
+            <Button className='btn' style={{ backgroundColor: 'red' }} onClick={() => onDelete(candidate.id)} text='Delete Candidate' />
         </div>
     )
 }
-Candidate.defaultProps = {
-    color: 'steelblue'
-}
+// Candidate.defaultProps = {
+//     color: 'steelblue'
+// }
 
 // Candidate.propTypes = {
 //     color: PropTypes.string,
 //     onDelete: PropTypes.func
 // }
 export default Candidate;
+{/* // <button className='btn' style={{backgroundColor: 'steelblue', color: 'red'}}>Delete</button> */ }

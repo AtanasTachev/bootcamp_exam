@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Jobs = ({jobId}) => {
+const JobsView = ({jobId}) => {
 
     return (
         <>
@@ -21,6 +21,6 @@ const Jobs = ({jobId}) => {
         </>)
 }
 
-export default Jobs;
+export default JobsView;
 
 // /jobs/:jobId/interviews

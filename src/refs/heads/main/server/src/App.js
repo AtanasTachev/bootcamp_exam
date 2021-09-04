@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Header from './components/Header.js'
-import Jobs from './components/Jobs.js'
+import JobsView from './components/JobsView.js'
 import CandidatesView from './components/CandidatesView.js'
-import Interviews from './components/Interviews.js'
+import InterviewsView from './components/InterviewsView.js'
 import CreateJob from './components/CreateJob.js'
 import EditJob from './components/EditJob.js'
 import CreateCandidate from './components/CreateCandidate.js'
@@ -12,10 +12,11 @@ import { useEffect, useState } from 'react'
 
 function App() {
     const [candidates, setCandidates] = useState([]);
+
     useEffect(() => {
         const getCandidates = async () => {
             const candidatesFromServer = await getAllCandidates();
-            setCandidates(candidatesFromServer)
+            setCandidates(candidatesFromServer);
         }
         getCandidates();
     }, []);
@@ -43,12 +44,15 @@ function App() {
         })
 
         const data = await res.json();
-        setCandidates([...candidates, data])
+        setCandidates([...candidates, data]);
     }
     const deleteCandidate = async (id) => {
         const res = await fetch(`http://localhost:5000/candidates/${id}`, {
             method: 'DELETE'
-        })
+        });
+        res.status === 200
+        ? setCandidates(candidates.filter((candidate) => candidate.id !== id))
+        : alert('Error deleting this candidate!')
     }
 
     // const data = 
@@ -58,15 +62,15 @@ function App() {
             <div className="container">
                 <Header />
                 <Switch>
-                    <Route path='/jobs' component={Jobs} />
+                    <Route path='/jobsView' component={JobsView} />
                     <Route path='/candidatesView' component={CandidatesView} />
                     <Route path='/candidates' exact render={(props) => (
                         <>
-                        {candidates.length > 0 ? <Candidates candidates={candidates}/>:'No candidates to display!'}
+                        {candidates.length > 0 ? <Candidates candidates={candidates} onDelete={deleteCandidate}/>:'No candidates to display!'}
                         </>)} />
-                    <Route exact path='/createCandidate' onCreateC={createCandidate} component={CreateCandidate} />
+                    <Route path='/createCandidate' onCreateC={createCandidate} component={CreateCandidate} />
                     <Route path='/editCandidate' component={EditCandidate} />
-                    <Route path='/interviews' component={Interviews} />
+                    <Route path='/interviews' component={InterviewsView} />
                     <Route path='/createJob' component={CreateJob} />
                     <Route path='/editJob' component={EditJob} />
                 </Switch>

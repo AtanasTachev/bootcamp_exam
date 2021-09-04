@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-  max-width: 600px;
+  max-width: 750px;
   margin: 30px auto;
   overflow: auto;
   min-height: 600px;
@@ -24,11 +24,15 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* margin-right: 10px; */
   margin-bottom: 20px;
+  /* flex:auto; */
+  /* position: inherit; */
 }
 
 .btn {
   display: inline-block;
+  width: 100px;
   background: #000;
   color: #fff;
   border: none;
@@ -37,8 +41,9 @@ body {
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 12px;
   font-family: inherit;
+  /* flex: auto; */
 }
 
 .btn:focus {
@@ -65,7 +70,7 @@ body {
   border-left: 5px solid green;
 }
 
-.task h3 {
+.task h5 {
   display: flex;
   align-items: center;
   justify-content: space-between;

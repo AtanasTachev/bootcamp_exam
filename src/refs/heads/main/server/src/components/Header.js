@@ -8,9 +8,9 @@ const Header = ({title}) => {
     return (
         <header className="header">
             <h1>{title} <p><Link to='/'>Home</Link></p></h1>
-            <Link to='/jobs'>JOBS</Link>
-            <Link to='/candidates'>CANDIDATES</Link>
-            <Link to='/interviews'>INTERVIEWS</Link>
+            <Link to='/jobsView'>JOBS</Link>
+            <Link to='/candidatesView'>CANDIDATES</Link>
+            <Link to='/interviewsView'>INTERVIEWS</Link>
             
         </header>
     )
