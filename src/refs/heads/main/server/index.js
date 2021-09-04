@@ -14,5 +14,5 @@ app.use(routes);
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 db.initDb().then(() => app.listen(PORT, async () => {
-  console.log(`Recruitment app listening on port ${PORT}`);
+  console.log(`Recruitment app listening on port ${PORT}.It is up to you now!`);
 }));

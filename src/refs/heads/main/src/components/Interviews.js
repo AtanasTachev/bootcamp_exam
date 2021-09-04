@@ -4,20 +4,20 @@ const Interviews = () => {
 
     return (
         <>
-                    <ul>
+            <ul>
                 <li>
-     <Link to='/createJob'>Create Interview</Link>
+                    <Link to='/createJob'>Create Interview</Link>
                 </li>
                 <li>
-     <Link to='/editJob'>Edit Interview</Link>
+                    <Link to='/editJob'>Edit Interview</Link>
                 </li>
                 <li>
-     <Link to='/deleteJob'>Delete Interview</Link>
+                    <Link to='/deleteJob'>Delete Interview</Link>
                 </li>
                 <li>
-     <Link to='/'>Go back</Link>
+                    <Link to='/'>Go back</Link>
                 </li>
-                </ul>
+            </ul>
         </>)
 }
 

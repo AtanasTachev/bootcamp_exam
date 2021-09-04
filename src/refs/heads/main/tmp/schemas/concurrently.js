@@ -1,0 +1,1 @@
+"concurrently \"nodemon server/index.js\" \"react-scripts start\"",

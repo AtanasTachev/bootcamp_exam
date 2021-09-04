@@ -1,6 +1,6 @@
 import Candidate from "./Candidate.js";
 
-const showAllCandidates = (candidates) => {
+const showAllCandidates = ({candidates, onDelete}) => {
     return (
         <> 
             {candidates.map((candidate, index) => (

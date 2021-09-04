@@ -14,20 +14,26 @@ function App() {
     const [candidates , setCandidates] = useState([]);
     useEffect( () => {
         const getCandidates = async() => {
-            const candidatesFromServer = await fetchCandidates();
+            const candidatesFromServer = await getAllCandidates();
             setCandidates(candidatesFromServer)
         }
         getCandidates();
     }, []);
 
-    const fetchCandidates = async () => {
-        const res = await fetch('http://localhost:5000/candidates')
+    const getAllCandidates = async () => {
+        const res = await fetch('/candidates')
+        const data = await res.json();
+        return data;
+    }
+
+    const getCandidate = async (id) => {
+        const res = await fetch(`/candidates/${id}`)
         const data = await res.json();
         return data;
     }
 
     const createCandidate = async (candidate) => {
-        const res = await fetch('http://localhost:5000/candidates', {
+        const res = await fetch('/candidates', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -38,7 +44,7 @@ function App() {
         const data = await res.json();
         setCandidates([...candidates, data])
     }
-    const deleteCandidate = (id) => {
+    const deleteCandidate = async (id) => {
         const res = await fetch (`http://localhost:5000/candidates/${id}`, {
             method: 'DELETE'
         })
@@ -50,7 +56,9 @@ function App() {
         <Header />
         <Route path='/jobs' component={Jobs}/>
         <Route path='/candidates' component={Candidates}/>
-        <Route path='/showAllCandidates' onDelete={deleteCandidate} component={ShowAllCandidates}/>
+        <Route path='/showAllCandidates' 
+        candidates={candidates} onDelete={deleteCandidate} 
+        component={ShowAllCandidates}/>
         <Route exact path='/createCandidate' onCreateC={createCandidate} component={CreateCandidate} />
         <Route path='/editCandidate' component={EditCandidate}/>
         <Route path='/interviews' component={Interviews}/>
