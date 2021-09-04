@@ -21,19 +21,19 @@ function App() {
     }, []);
 
     const getAllCandidates = async () => {
-        const res = await fetch('/candidates')
+        const res = await fetch('http://localhost:5000/candidates')
         const data = await res.json();
         return data;
     }
 
     const getCandidate = async (id) => {
-        const res = await fetch(`/candidates/${id}`)
+        const res = await fetch(`http://localhost:5000/candidates/${id}`)
         const data = await res.json();
         return data;
     }
 
     const createCandidate = async (candidate) => {
-        const res = await fetch('/candidates', {
+        const res = await fetch('http://localhost:5000/candidates', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
