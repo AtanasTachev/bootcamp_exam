@@ -19,12 +19,14 @@ function App() {
             setCandidates(candidatesFromServer);
         }
         getCandidates();
+        // return () => {
+        //     console.log('This will be logged on unmount');
+        //   };
     }, []);
 
     const getAllCandidates = async () => {
         const res = await fetch('http://localhost:5000/candidates')
         const data = await res.json();
-        console.log(data);
         return data;
     }
 
@@ -46,6 +48,24 @@ function App() {
         const data = await res.json();
         setCandidates([...candidates, data]);
     }
+    
+    const candidateToUpdate = undefined; 
+
+    const updateCandidate = async (id) => {
+        candidateToUpdate = await getCandidate(id);
+
+        const res = await fetch('http://localhost:5000/candidates/:id', {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(candidateToUpdate)
+        })
+
+        const data = await res.json();
+        // setCandidates([...candidates, data]);
+    }
+
     const deleteCandidate = async (id) => {
         const res = await fetch(`http://localhost:5000/candidates/${id}`, {
             method: 'DELETE'
@@ -69,7 +89,7 @@ function App() {
                         {candidates.length > 0 ? <Candidates candidates={candidates} onDelete={deleteCandidate}/>:'No candidates to display!'}
                         </>)} />
                     <Route path='/createCandidate' onCreateC={createCandidate} component={CreateCandidate} />
-                    <Route path='/editCandidate' component={EditCandidate} />
+                    <Route path='/editCandidate' onUpdate={updateCandidate} candidate={candidateToUpdate} component={EditCandidate} />
                     <Route path='/interviews' component={InterviewsView} />
                     <Route path='/createJob' component={CreateJob} />
                     <Route path='/editJob' component={EditJob} />

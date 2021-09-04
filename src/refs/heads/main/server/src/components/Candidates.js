@@ -1,11 +1,11 @@
 import Candidate from "./Candidate.js";
 
-const Candidates = ({candidates}) => {
+const Candidates = ({candidates, onDelete, onUpdate}) => {
     // console.log(candidates);
     return (
         <> 
             {candidates.map((candidate, index) => (
-                <Candidate key={index} candidate = {candidate}/>)) }
+                <Candidate key={index} ondelete={onDelete} onUpdate={onUpdate} candidate = {candidate}/>)) }
         </>
     )
 }
