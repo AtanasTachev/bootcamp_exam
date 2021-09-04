@@ -1,21 +1,13 @@
-import { Link } from "react-router-dom";
+import Candidate from "./Candidate.js";
 
-const Candidates = () => {
-
+const Candidates = ({candidates}) => {
+    // console.log(candidates);
     return (
-        <>
-            <ul>
-            <li>
-                    <Link to='/showAllCandidates'>Show All Candidates</Link>
-                </li>
-                <li>
-                    <Link to='/createCandidate'>Create Candidate</Link>
-                </li>
-                <li>
-                    <Link to='/'>Home</Link>
-                </li>
-            </ul>
-        </>)
+        <> 
+            {candidates.map((candidate, index) => (
+                <Candidate key={index} candidate = {candidate}/>)) }
+        </>
+    )
 }
 
 export default Candidates;
