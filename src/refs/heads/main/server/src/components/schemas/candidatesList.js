@@ -1,11 +1,11 @@
-import Candidate from "./candidate.js";
+import Candidate from "./Candidate.js";
 
 const Candidates = ({candidates, onDelete, onUpdate}) => {
     // console.log(candidates);
     return (
         <> 
             {candidates.map((candidate, index) => (
-                <Candidate key={index} ondelete={onDelete} onUpdate={onUpdate} candidate = {candidate}/>)) }
+                <Candidate key={index} onDelete={onDelete} onUpdate={onUpdate} candidate = {candidate}/>)) }
         </>
     )
 }

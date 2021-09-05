@@ -1,8 +1,7 @@
 import { useState } from "react";
 
-const EditCandidate= ({onUpdate, id, candidate}) => {
-    
-    id =  Math.floor(Math.random() * 10000) + 1;
+const EditCandidate= ({onUpdate, candidate}) => {
+
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -23,22 +22,22 @@ const EditCandidate= ({onUpdate, id, candidate}) => {
 
     return [
 
-        <form key={id} className='add-form' onSubmit={onSubmit}>
-            <div key={id+1} className='form-control'>
+        <form className='add-form' onSubmit={onSubmit}>
+            <div className='form-control'>
                 <label>First Name</label>
                 <input type='text'
                 value={candidate.firstName} onChange={(e) => {
                     setFirstName(e.target.value)
                 }}/>
             </div>
-            <div key={id+2} className='form-control'>
+            <div  className='form-control'>
                 <label>Last Name</label>
                 <input type='text'
                       value={candidate.lastName} onChange={(e) => {
                         setLastName(e.target.value)
                     }}/>
             </div>
-            <div key={id+3} className='form-control'>
+            <div className='form-control'>
                 <label>Email</label>
                 <input type='text'
                       value={candidate.email} onChange={(e) => {

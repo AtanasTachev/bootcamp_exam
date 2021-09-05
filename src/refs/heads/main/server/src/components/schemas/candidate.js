@@ -9,7 +9,7 @@ const Candidate = ({ candidate, onDelete, onUpdate }) => {
             <p>{candidate.firstName} {candidate.lastName}</p>
             <h5 style={{ color: 'blue' }}>Email: </h5>
             <p>{candidate.email}</p>
-            <Link to='/editCandidate' className='btn' style={{ backgroundColor: 'orange' }} onUpdate={onUpdate}>Edit Candidate</Link>
+            <Link to='/editCandidate' className='btn' style={{ backgroundColor: 'orange' }} onClick={() => onUpdate(candidate.id)}>Edit Candidate</Link>
             <Button className='btn' style={{ backgroundColor: 'red' }} onClick={() => onDelete(candidate.id)} text='Delete Candidate' />
         </div>
     )
@@ -23,4 +23,3 @@ const Candidate = ({ candidate, onDelete, onUpdate }) => {
 //     onDelete: PropTypes.func
 // }
 export default Candidate;
-{/* // <button className='btn' style={{backgroundColor: 'steelblue', color: 'red'}}>Delete</button> */ }

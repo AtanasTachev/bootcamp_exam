@@ -1,12 +1,12 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 import Header from './components/Header.js'
 import JobsView from './components/JobsView.js'
 import CandidatesView from './components/CandidatesView.js'
 import InterviewsView from './components/InterviewsView.js'
 import CreateJob from './components/CreateJob.js'
 import EditJob from './components/EditJob.js'
-import CandidateCreate from './components/schemas/candidateCreate.js'
-import Candidates from './components/schemas/candidatesList.js'
+import CandidateCreate from './components/schemas/CandidateCreate.js'
+import Candidates from './components/schemas/CandidatesList.js'
 import EditCandidate from './components/schemas/EditCandidate.js'
 import { useEffect, useState } from 'react'
 
@@ -49,12 +49,12 @@ function App() {
         setCandidates([...candidates, data]);
     }
     
-    const candidateToUpdate = undefined; 
+    let candidateToUpdate = undefined; 
 
     const updateCandidate = async (id) => {
         candidateToUpdate = await getCandidate(id);
 
-        const res = await fetch('http://localhost:5000/candidates/:id', {
+        const res = await fetch(`http://localhost:5000/candidates/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-type': 'application/json'
@@ -90,7 +90,7 @@ function App() {
                         </>)} />
                         {/* //render={props => <Life sayHello = {this.sayHello()} */}
                     <Route path='/createCandidate' render = {props => ( <CandidateCreate onCreateC={createCandidate}/> )} />
-                    <Route path='/editCandidate' render = {props => ( <CandidateCreate onUpdate={updateCandidate}/> )} />
+                    <Route path='/editCandidate' render = {props => ( <EditCandidate onUpdate={updateCandidate}/> )} />
                     {/* onUpdate={updateCandidate} candidate={candidateToUpdate} component={EditCandidate} /> */}
                     <Route path='/interviewsView' component={InterviewsView} />
                     <Route path='/createJob' component={CreateJob} />
