@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-const CreateCandidate= ({onCreateC, id}) => {
+const CandidateCreate = ({onCreateC, id}) => {
     id =  Math.floor(Math.random() * 10000) + 1;
     
     const [firstName, setFirstName] = useState('');
@@ -15,7 +15,7 @@ const CreateCandidate= ({onCreateC, id}) => {
             alert('Please add first name!');
             return;
         }
-        onCreateC({ firstName, lastName, email});
+        onCreateC({firstName, lastName, email});
 
         setFirstName('');
         setLastName('');
@@ -51,4 +51,4 @@ const CreateCandidate= ({onCreateC, id}) => {
         
     ]
 }
-export default CreateCandidate;
+export default CandidateCreate;

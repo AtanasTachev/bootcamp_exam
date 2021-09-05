@@ -5,7 +5,7 @@ import CandidatesView from './components/CandidatesView.js'
 import InterviewsView from './components/InterviewsView.js'
 import CreateJob from './components/CreateJob.js'
 import EditJob from './components/EditJob.js'
-import CreateCandidate from './components/schemas/candidateCreate.js'
+import CandidateCreate from './components/schemas/candidateCreate.js'
 import Candidates from './components/schemas/candidatesList.js'
 import EditCandidate from './components/EditCandidate.js'
 import { useEffect, useState } from 'react'
@@ -19,9 +19,9 @@ function App() {
             setCandidates(candidatesFromServer);
         }
         getCandidates();
-        return () => {
-            console.log('This will be logged on unmount');
-          };
+        // return () => {
+        //     console.log('This will be logged on unmount');
+        //   };
     }, []);
 
     const getAllCandidates = async () => {
@@ -88,9 +88,9 @@ function App() {
                         <>
                         {candidates.length > 0 ? <Candidates candidates={candidates} onDelete={deleteCandidate}/>:'No candidates to display!'}
                         </>)} />
-                    <Route path='/createCandidate' onCreateC={createCandidate} component={CreateCandidate} />
+                    <Route path='/createCandidate' onCreateC={CandidateCreate} component={CandidateCreate} />
                     <Route path='/editCandidate' onUpdate={updateCandidate} candidate={candidateToUpdate} component={EditCandidate} />
-                    <Route path='/interviews' component={InterviewsView} />
+                    <Route path='/interviewsView' component={InterviewsView} />
                     <Route path='/createJob' component={CreateJob} />
                     <Route path='/editJob' component={EditJob} />
                 </Switch>
