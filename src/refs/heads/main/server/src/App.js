@@ -7,7 +7,7 @@ import CreateJob from './components/CreateJob.js'
 import EditJob from './components/EditJob.js'
 import CandidateCreate from './components/schemas/candidateCreate.js'
 import Candidates from './components/schemas/candidatesList.js'
-import EditCandidate from './components/EditCandidate.js'
+import EditCandidate from './components/schemas/EditCandidate.js'
 import { useEffect, useState } from 'react'
 
 function App() {
@@ -81,19 +81,21 @@ function App() {
         <Router>
             <div className="container">
                 <Header />
-                <Switch>
+
                     <Route path='/jobsView' component={JobsView} />
                     <Route path='/candidatesView' component={CandidatesView} />
                     <Route path='/candidates' exact render={(props) => (
                         <>
-                        {candidates.length > 0 ? <Candidates candidates={candidates} onDelete={deleteCandidate}/>:'No candidates to display!'}
+                        {candidates.length > 0 ? <Candidates candidates={candidates} onDelete={deleteCandidate} onUpdate={updateCandidate}/>:'No candidates to display!'}
                         </>)} />
-                    <Route path='/createCandidate' onCreateC={CandidateCreate} component={CandidateCreate} />
-                    <Route path='/editCandidate' onUpdate={updateCandidate} candidate={candidateToUpdate} component={EditCandidate} />
+                        {/* //render={props => <Life sayHello = {this.sayHello()} */}
+                    <Route path='/createCandidate' render = {props => ( <CandidateCreate onCreateC={createCandidate}/> )} />
+                    <Route path='/editCandidate' render = {props => ( <CandidateCreate onUpdate={updateCandidate}/> )} />
+                    {/* onUpdate={updateCandidate} candidate={candidateToUpdate} component={EditCandidate} /> */}
                     <Route path='/interviewsView' component={InterviewsView} />
                     <Route path='/createJob' component={CreateJob} />
                     <Route path='/editJob' component={EditJob} />
-                </Switch>
+
 
             </div>
         </Router>
