@@ -1,4 +1,4 @@
-import Candidate from "./Candidate.js";
+import Candidate from "./candidate.js";
 
 const Candidates = ({candidates, onDelete, onUpdate}) => {
     // console.log(candidates);
