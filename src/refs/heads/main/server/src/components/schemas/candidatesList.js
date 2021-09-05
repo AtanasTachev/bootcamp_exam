@@ -5,7 +5,7 @@ const Candidates = ({candidates, onDelete, onUpdate}) => {
     return (
         <> 
             {candidates.map((candidate, index) => (
-                <Candidate key={index} onDelete={onDelete} onUpdate={onUpdate} candidate = {candidate}/>)) }
+                <Candidate key={index} onDelete={onDelete} onUpdate={() => onUpdate(candidate._id)} candidate = {candidate}/>)) }
         </>
     )
 }

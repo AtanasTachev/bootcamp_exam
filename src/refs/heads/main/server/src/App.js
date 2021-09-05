@@ -19,9 +19,6 @@ function App() {
             setCandidates(candidatesFromServer);
         }
         getCandidates();
-        // return () => {
-        //     console.log('This will be logged on unmount');
-        //   };
     }, []);
 
     const getAllCandidates = async () => {
@@ -63,15 +60,16 @@ function App() {
         })
 
         const data = await res.json();
-        // setCandidates([...candidates, data]);
+        setCandidates([...candidates, data]);
     }
 
     const deleteCandidate = async (id) => {
+        console.log(id);
         const res = await fetch(`http://localhost:5000/candidates/${id}`, {
             method: 'DELETE'
         });
         res.status === 200
-        ? setCandidates(candidates.filter((candidate) => candidate.id !== id))
+        ? setCandidates(candidates.filter((candidate) => candidate._id !== id))
         : alert('Error deleting this candidate!')
     }
 
